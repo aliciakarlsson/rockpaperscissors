@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Rock Paper  Scissors</h1>
+    <h2>Play against the CPU</h2>
+    <p class="info">First to 3 gets the win!</p>
+
+    <h3>Your choices:</h3>
+    <div class="choices">
+        
+        <button id="rock" class="choice"><img src="images/rock.svg" alt="rock"></button>
+        <button id="paper" class="choice"><img src="images/hand-regular.svg" alt="paper"></button>
+        <button id="scissor" class="choice"><img src="images/scissor.svg" alt="scissors"></button>
+    </div>
+
+    <div id="scores">
+        <p id="message"></p>
+        <p id="scoreboard"></p>
+
+    </div>
+
+    <div class="results">
+        <p id="result"></p>
+    </div>
+
+    <div>
+        <button id="playagain">Play again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
