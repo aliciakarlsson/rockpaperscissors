@@ -16,28 +16,34 @@
     <h1>Rock Paper  Scissors</h1>
     <h2>Play against the CPU</h2>
     <p class="info">First to 3 gets the win!</p>
+    <section>
+        <h3>Your choices:</h3>
+        <div class="choices">
+            
+            <button class="choice"><img id="rock" src="images/rock.svg" alt="rock"></button>
+            <button  class="choice"><img id="paper" src="images/hand-regular.svg" alt="paper"></button>
+            <button  class="choice"><img id="scissor" src="images/scissor.svg" alt="scissors"></button>
+        </div>
 
-    <h3>Your choices:</h3>
-    <div class="choices">
-        
-        <button id="rock" class="choice"><img src="images/rock.svg" alt="rock"></button>
-        <button id="paper" class="choice"><img src="images/hand-regular.svg" alt="paper"></button>
-        <button id="scissor" class="choice"><img src="images/scissor.svg" alt="scissors"></button>
-    </div>
+        <div class="container">
+        <div class="userpick"></div>
+        <div class="cpupick"></div>
+        </div>
+    </section>
 
     <div id="scores">
-        <p id="message"></p>
-        <p id="scoreboard"></p>
+            <p id="message"></p>
+            <p id="scoreboard"></p>
 
-    </div>
+        </div>
 
-    <div class="results">
-        <p id="result"></p>
-    </div>
+        <div class="results">
+            <p id="result"></p>
+        </div>
 
-    <div>
+        <div>
         <button id="playagain">Play again</button>
-    </div>
+        </div>
 
     <script src="script.js"></script>
 </body>

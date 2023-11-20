@@ -1,4 +1,4 @@
-let userChoice = "";
+let userChoice
 let userScore = 0;
 let cpuScore = 0;
 let gameActive = true;
@@ -7,6 +7,8 @@ const message = document.getElementById('message');
 const score = document.getElementById('scoreboard');
 const result = document.getElementById('result');
 const playAgain = document.getElementById('playagain');
+const userPickElement = document.querySelector('.userpick');
+const cpuPickElement = document.querySelector('.cpupick');
 
 playAgain.addEventListener('click', function(){
     resetGame();
@@ -20,7 +22,9 @@ function resetGame(){
         message.textContent = "";
         score.textContent = "";
         result.textContent = "";
-        enableButtons(); //Aktiverar knappar
+        userPickElement.innerHTML = "";
+        cpuPickElement.innerHTML = "";
+        enableButtons();
 }
 
 function disableButtons(){
@@ -38,26 +42,26 @@ function enableButtons(){
 const rock = document.getElementById("rock");
 rock.addEventListener("click", function () {
     if (!gameActive) return;
-    userChoice = "rock";
+    userChoice = 'images/rock.svg';
     playGame();
 });
 
 const paper = document.getElementById("paper");
 paper.addEventListener("click", function () {
     if (!gameActive) return;
-    userChoice = "paper";
+    userChoice = 'images/hand-regular.svg';
     playGame();
 });
 
 const scissor = document.getElementById("scissor");
 scissor.addEventListener("click", function () {
     if (!gameActive) return;
-    userChoice = "scissor";
+    userChoice = "images/scissor.svg";
     playGame();
 });
 
 function getCpuChoice() {
-  const choices = ["rock", "paper", "scissor"];
+  const choices = ['images/rock.svg', 'images/hand-regular.svg', 'images/scissor.svg'];
   const decide = Math.floor(Math.random() * 3);
   console.log(`datorn valde ${choices[decide]}`);
   return choices[decide];
@@ -68,26 +72,45 @@ function playGame() {
 
   if (!gameActive) return;
 
+  const userImage = document.createElement('img');
+  const cpuImage = document.createElement('img');
+
+    userPickElement.innerHTML = "";
+    cpuPickElement.innerHTML = "";
+
+  userImage.src = userChoice;
+  cpuImage.src = cpuChoice;
+
   if (userChoice === cpuChoice) {
-    message.textContent = `You chose ${userChoice}, CPU chose ${cpuChoice}. It's a tie.`
+    message.textContent = `It's a tie.`
     score.textContent = `You: ${userScore} CPU: ${cpuScore}`;
   } else if (
-    (userChoice === "rock" && cpuChoice === "scissor") ||
-    (userChoice === "scissor" && cpuChoice === "paper") ||
-    (userChoice === "paper" && cpuChoice === "rock")
+    (userChoice === "images/rock.svg" && cpuChoice === "images/scissor.svg") ||
+    (userChoice === "images/scissor.svg" &&
+      cpuChoice === "images/hand-regular.svg") ||
+    (userChoice === "images/hand-regular.svg" &&
+      cpuChoice === "images/rock.svg")
   ) {
-    message.textContent = `You chose ${userChoice}, CPU chose ${cpuChoice}. You won the round!`;
+    message.textContent = `You won the round!`;
     userScore++;
     score.textContent = `You: ${userScore} CPU: ${cpuScore}`;
   } else if (
-    (userChoice === "rock" && cpuChoice === "paper") ||
-    (userChoice === "scissor" && cpuChoice === "rock") ||
-    (userChoice === "paper" && cpuChoice === "scissor")
+    (userChoice === "images/rock.svg" &&
+      cpuChoice === "images/hand-regular.svg") ||
+    (userChoice === "images/scissor.svg" && cpuChoice === "images/rock.svg") ||
+    (userChoice === "images/hand-regular.svg" && cpuChoice === "images/scissor.svg")
   ) {
-    message.textContent = `You chose ${userChoice}, CPU chose ${cpuChoice}. CPU won the round!`;
+    message.textContent = `CPU won the round!`;
     cpuScore++;
     score.textContent = `You: ${userScore} CPU: ${cpuScore}`;
   }
+
+  userPickElement.classList.add('stylepick');
+  cpuPickElement.classList.add('stylepick');
+  userPickElement.textContent = 'Your pick:';
+  userPickElement.appendChild(userImage);
+  cpuPickElement.textContent = "CPU's pick:";
+  cpuPickElement.appendChild(cpuImage);
 
   if(userScore === 3){
     result.textContent = 'You won the game!';
