@@ -24,6 +24,7 @@ section{
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    margin: 1rem;
 }
 
 h1{
@@ -41,7 +42,7 @@ h2{
 
 .info{
     font-size: 1.7rem;
-    margin: 0.5rem;
+
 }
 
 .choice img{
@@ -128,6 +129,7 @@ h3{
     width: 3rem;
     background-color: pink;
     border-radius: 50%;
+    margin: .5rem;
 }
 
 .cpupick img{
